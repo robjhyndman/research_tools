@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 *.fdb_latexmk
-workflow_files/*
+*_files/*
+*_cache/*
 beamerthemeMonash.sty
