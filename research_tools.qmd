@@ -1,5 +1,5 @@
 ---
-title: Research tools
+title: Modern research tools and workflow
 subtitle: robjhyndman/research\_tools
 author: Rob J Hyndman
 date: 2024-12-30
@@ -16,11 +16,27 @@ execute:
   echo: true
 ---
 
+## Research tools
+
+\placefig{.1}{1.2}{width=6cm}{Zotero}
+\placefig{2.4}{2.7}{width=6cm}{Paperpile}
+
+\placefig{.2}{4.8}{width=3.6cm}{renv}
+\placefig{3.8}{4.8}{width=3.6cm}{targets}
+\placefig{7.4}{4.8}{width=3.6cm}{quarto}
+
+\placefig{13}{5.8}{width=1.5cm}{github-mark}
+\placefig{11.5}{7.2}{width=4.2cm}{github}
+
+\placefig{11}{3.8}{width=4.9cm}{Google_scholar}
+\placefig{8.1}{1.3}{width=4.9cm}{semanticscholar}
+
 # Citing
 
 ## Managing references
 
 \placefig{8.7}{2.6}{width=6.1cm}{Zotero}
+
 
 \begin{textblock}{7.}(.4,0.95)
 \begin{alertblock}{Zotero\phantom{y}}\fontsize{12}{12}\sf
@@ -126,12 +142,12 @@ citation("packagename")
 \placefig{10.4}{5.4}{width=5.4cm}{bibliography}\vspace*{0.6cm}\vspace*{-0.4cm}
 \begin{textblock}{14}(0.2,1.3)
 \begin{itemize}\tightlist
-\item Every article cited should be sighted, \& preferably read.
- \item  At the very least, check that the article cited really does say what you think it says.
- \item  Type the reference information yourself.
- \item  Don’t just cite what other people say about citations.
- \item  Store accurate reference info from the start.
- \item  Give credit where it is due.
+ \item Every article cited should be sighted, \& preferably read.
+ \item Check that the article cited really does say what you think it says.
+ \item Check the reference information yourself. Don't copy.
+ \item Don’t just cite what other people say about citations.
+ \item Store accurate reference info from the start.
+ \item Give credit where it is due.
 
  \only<2>{\vspace*{0.2cm}
    \begin{itemize}\tightlist
@@ -187,12 +203,41 @@ citation("packagename")
 ## Reproducibility
 
 \begin{block}{}
-Someone should be able to reproduce your thesis without having to guess what software you had installed, what versions, which files do what, etc.
-\end{block}\vspace*{-0.2cm}\pause
+Someone should be able to reproduce your thesis or paper without having to guess what software you had installed, what versions, which files do what, etc.
+\end{block}
 
  * Stay organized.
- * One system for doing this using R is to write your thesis in an Rmarkdown or Quarto file.
- * Track software versions
+ * Write a readme file to explain how to reproduce your thesis or paper.
+ * Use a scripting language such as R, Python, or Julia.
+ * Use a reproducible environment to lock software versions.
+
+## Reproducible environments
+
+\placefig{0.3}{1.25}{height = 6.5cm}{figs/renv}
+
+\begin{textblock}{9.5}(6.2, 1.3)
+\begin{itemize}\tightlist
+\item Creates project-specific R environments.
+\item Uses a package cache so you are not repeatedly installing the same packages in multiple projects.
+\item Does not ensure R itself, system dependencies or the OS are the same.
+\item Not a replacement for Docker or Apptainer.
+\end{itemize}
+\end{textblock}
+
+## Reproducible environments
+\placefig{0.3}{1.25}{height = 6.5cm}{figs/renv}
+
+\begin{textblock}{9.5}(6.2, 1.3)
+\begin{itemize}\tightlist
+\item Can use packages from CRAN, Bioconductor, GitHub, Gitlab, Bitbucket, etc.
+\item \texttt{renv::init()} to initialize a new project.
+\item \texttt{renv::snapshot()} to save state of project to \texttt{renv.lock}.
+\item \texttt{renv::restore()} to restore project as saved in \texttt{renv.lock}.
+\end{itemize}
+\end{textblock}
+
+
+# Saving
 
 ## Version control
 \fontsize{13}{15}\sf
@@ -235,129 +280,9 @@ Someone should be able to reproduce your thesis without having to guess what sof
 1. Specify units.
 1. Label axes.
  -->
+# Caching 
 
-# Writing
-
-## Microsoft Word
-
-\placefig{4.1}{1.1}{width=11.9cm}{problems}
-
-\only<2>{
-  \begin{textblock}{9}(0.2,1.)
-  \begin{block}{}
-  \begin{itemize}\tightlist
-  \item Impossible to do proper version control
-  \item Poor formatting of equations
-  \item Impossible to make reproducible
-  \item More difficult to automate cross-referencing, numbering
-  \item Files more likely to be corrupted
-  \end{itemize}\end{block}\end{textblock}}
-
-##
-
-\placefig{1.3}{1.1}{width=3cm}{latex_logo}
-
-\begin{textblock}{7.8}(7.6,.5)\fontsize{13}{13}\sf
-\begin{alertblock}{Document processing}
-\begin{itemize}\itemsep=1.mm
-\item[\textcolor{white}{\ding{229}}] Free and open-source
-\item[\textcolor{white}{\ding{229}}] Available on all operating systems
-\item[\textcolor{white}{\ding{229}}] Used by every mathematical publisher
-\item[\textcolor{white}{\ding{229}}] Separate content from style
-\item[\textcolor{white}{\ding{229}}] Format complex equations
-\item[\textcolor{white}{\ding{229}}] Automatic numbering
-\item[\textcolor{white}{\ding{229}}] Automatic bibliography
-\item[\textcolor{white}{\ding{229}}] Almost every language
-\end{itemize}
-\end{alertblock}
-\end{textblock}
-
-\begin{textblock}{5.5}(.7,3.5)
-\begin{block}{To install:}
-\begin{itemize}
-\item Download MikTeX, MacTeX or TeXlive.
-\item Download TeXStudio from \url{texstudio.sourceforge.net/}
-\end{itemize}
-\end{block}
-\end{textblock}
-
-## Quarto
-
-\begin{textblock}{9}(6.2,1.5)
-\begin{alertblock}{Quarto}
-\begin{itemize}\itemsep=1.5mm
-\item[\textcolor{white}{\ding{229}}] Combines R, Python  and LaTeX into one system
-\item[\textcolor{white}{\ding{229}}] Reproducible research
-\item[\textcolor{white}{\ding{229}}] Monash Thesis Template via\\
-\texttt{github.com/numbats/monash-quarto-thesis}
-\item[\textcolor{white}{\ding{229}}] Useful for assignments too
-\item[\textcolor{white}{\ding{229}}] See \url{quarto.org} for help
-\end{itemize}
-\end{alertblock}
-\end{textblock}
-
-\begin{textblock}{5}(.6,1.3)
-\begin{block}{}
-\includegraphics[width=5cm]{quarto-thesis}
-\end{block}
-\end{textblock}
-
-
-# An efficient reproducible workflow
-
-## Example paper
-
-\placefig{0}{1.1}{height=8cm}{figs/jors.png}
-
-\begin{textblock}{9.4}(6.2,1.1)
-\begin{block}{}\fontsize{12}{16}\sf
-\begin{tabular}{p{5cm}l@{}}
-Hyndman RJ, Rostami-Tabar B (2024) Forecasting interrupted time series, \textit{Journal of the Operational Research Society}, in press.
-& \raisebox{-3cm}{\includegraphics[width=3.6cm,height=3.6cm]{figs/qr-code}}
-\end{tabular}
-\end{block}
-\end{textblock}
-\begin{textblock}{9.4}(6.2,5.4)\fontsize{14}{14}\sf
-\begin{alertblock}{}
-\href{https://github.com/bahmanrostamitabar/forecasting_interrupted_time_series}{\tt\faicon{github} bahmanrostamitabar/\\\hspace*{1.7ex} \rlap{forecasting\_interrupted\_time\_series}}
-\end{alertblock}
-\end{textblock}
-
-## Tools
-
-\placefig{4.5}{1.7}{width=1.8cm}{github-mark}
-\placefig{3.65}{3.3}{width=3.5cm}{github}
-\placefig{8.65}{1.7}{width=3.5cm}{Rlogo}
-\placefig{1.15}{4.8}{width=3.5cm}{renv}
-\placefig{6.15}{4.8}{width=3.5cm}{targets}
-\placefig{11.15}{4.8}{width=3.5cm}{quarto}
-
-## Reproducible environments
-
-\placefig{0.3}{1.25}{height = 6.5cm}{figs/renv}
-
-\begin{textblock}{9.5}(6.2, 1.3)
-\begin{itemize}\tightlist
-\item Creates project-specific R environments.
-\item Uses a package cache so you are not repeatedly installing the same packages in multiple projects.
-\item Does not ensure R itself, system dependencies or the OS are the same.
-\item Not a replacement for Docker or Apptainer.
-\end{itemize}
-\end{textblock}
-
-## Reproducible environments
-\placefig{0.3}{1.25}{height = 6.5cm}{figs/renv}
-
-\begin{textblock}{9.5}(6.2, 1.3)
-\begin{itemize}\tightlist
-\item Can use packages from CRAN, Bioconductor, GitHub, Gitlab, Bitbucket, etc.
-\item \texttt{renv::init()} to initialize a new project.
-\item \texttt{renv::snapshot()} to save state of project to \texttt{renv.lock}.
-\item \texttt{renv::restore()} to restore project as saved in \texttt{renv.lock}.
-\end{itemize}
-\end{textblock}
-
-## Efficient computational pipelines
+## targets
 
 \placefig{0.3}{1.25}{height = 6.5cm}{figs/targets}
 
@@ -438,23 +363,52 @@ list(
 
 Each target runs with its own seed based on its name and the global seed from `tar_option_set(seed = ???)`
 
+# Writing
 
-## Reproducible documents
+## Microsoft Word
+
+\placefig{4.1}{1.1}{width=11.9cm}{problems}
+
+\only<2>{
+  \begin{textblock}{9}(0.2,1.)
+  \begin{block}{}
+  \begin{itemize}\tightlist
+  \item Impossible to do proper version control
+  \item Poor formatting of equations
+  \item Impossible to make reproducible
+  \item More difficult to automate cross-referencing, numbering
+  \item Files more likely to be corrupted
+  \end{itemize}\end{block}\end{textblock}}
+
+## Quarto
 
 \placefig{0.3}{1.25}{height = 6.5cm}{figs/quarto}
 
 \begin{textblock}{9.5}(6.2, 1.1)
 \fontsize{14}{15}\sf
 \begin{itemize}\tightlist
-\item Generalization of Rmarkdown (not dependent on R)
-\item Supports R, Python, Javascript and Julia chunks by using either `knitr`, `jupyter` or `ObservableJS` engines.
-\item Consistent yaml header and chunk options.
+\item Next generation of Rmarkdown.
+\item Supports R, Python, Javascript and Julia chunks.
+\item Separates style from content
+\item Format complex equations
+\item Automatic numbering and bibliography
 \item Many output formats, and many options for customizing format.
-\item Uses pandoc templates for extensions
+\item Download and help: \url{quarto.org} 
 \end{itemize}
 \end{textblock}
 
 \placefig{5}{7.3}{width=10cm}{figs/qmd.png}
+
+## Extensions and templates
+\fontsize{13}{17}\sf
+
+* **Quarto extensions** modify and extend functionality.
+  * See <https://quarto.org/docs/extensions/> for a list.
+  * They are stored locally, in the `_extensions` folder alongside the qmd document.
+* **Quarto templates** are extensions used to define new output formats.
+  * **Journal templates** at\newline <https://quarto.org/docs/extensions/listing-journals.html>
+  * **Monash templates** at <https://github.com/quarto-monash>
+
 
 ## Chunk options
 
@@ -507,15 +461,24 @@ list(
 1. Load `tarchetypes` package for quarto support.
 2. Add a quarto target.
 
-## Extensions and templates
-\fontsize{13}{17}\sf
 
-* **Quarto extensions** modify and extend functionality.
-  * See <https://quarto.org/docs/extensions/> for a list.
-  * They are stored locally, in the `_extensions` folder alongside the qmd document.
-* **Quarto templates** are extensions used to define new output formats.
-  * **Journal templates** at\newline <https://quarto.org/docs/extensions/listing-journals.html>
-  * **Monash templates** at <https://github.com/quarto-monash>
+## Example paper
+
+\placefig{0}{1.1}{height=8cm}{figs/jors.png}
+
+\begin{textblock}{9.4}(6.2,1.1)
+\begin{block}{}\fontsize{12}{16}\sf
+\begin{tabular}{p{5cm}l@{}}
+Hyndman RJ, Rostami-Tabar B (2024) Forecasting interrupted time series, \textit{Journal of the Operational Research Society}, in press.
+& \raisebox{-3cm}{\includegraphics[width=3.6cm,height=3.6cm]{figs/qr-code}}
+\end{tabular}
+\end{block}
+\end{textblock}
+\begin{textblock}{9.4}(6.2,5.4)\fontsize{14}{14}\sf
+\begin{alertblock}{}
+\href{https://github.com/bahmanrostamitabar/forecasting_interrupted_time_series}{\tt\faicon{github} bahmanrostamitabar/\\\hspace*{1.7ex} \rlap{forecasting\_interrupted\_time\_series}}
+\end{alertblock}
+\end{textblock}
 
 ## Slides and links
 \fontsize{24}{30}\sf
