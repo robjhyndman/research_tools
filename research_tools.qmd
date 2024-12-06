@@ -1,6 +1,6 @@
 ---
 title: Modern research tools and workflow
-subtitle: robjhyndman/research\_tools
+subtitle: robjhyndman.com/research\_tools
 author: Rob J Hyndman
 date: 2024-12-30
 toc: true
