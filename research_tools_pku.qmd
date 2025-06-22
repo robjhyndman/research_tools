@@ -381,8 +381,12 @@ Hyndman RJ, Rostami-Tabar B (2024) Forecasting interrupted time series, \textit{
 ## Slides and links
 \fontsize{24}{30}\sf
 
-\vspace*{3cm}
+\vspace*{2cm}
 
 \begin{alertblock}{}
-\centerline{\href{https://robjhyndman.com/research_tools}{\tt\bfseries robjhyndman.com/pku2025}}
-\end{alertblock}
+\centerline{\href{https://robjhyndman.com/pku2025}{\tt\bfseries robjhyndman.com/pku2025}}
+\end{alertblock}\vspace*{0.4cm}
+
+\begin{block}{}
+\centerline{\href{https://robjhyndman.com/postdoc}{\tt\bfseries robjhyndman.com/postdoc}}
+\end{block}
