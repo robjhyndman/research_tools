@@ -1,0 +1,5 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+create_plot|function|19b5a856674fca5b
+.Random.seed|object|fd13b87adddc6808
+plot|stem|2a0606b672618f90|495b8cd54b1c1d6f|b096519e89e993d1|874984291||t20272.285046447s|s284359b|284359|rds|local|vector|||0.162||
+report|stem|80bb01c508ae9555|2004960d4153d35a|0deeda3a778cfd64|787668912|Qmd_example_files*Qmd_example.pdf*Qmd_example.qmd*_extensions/quarto-monash/memo/_extension.yml*_extensions/quarto-monash/memo/AACSB.png*_extensions/quarto-monash/memo/AMBA.png*_extensions/quarto-monash/memo/before-title.tex*_extensions/quarto-monash/memo/EQUIS.png*_extensions/quarto-monash/memo/MBSportrait.jpg*_extensions/quarto-monash/memo/monash2.png|t20272.2851269891s|s1430356b|1430356|file|local|vector|||6.906||

@@ -87,23 +87,6 @@ mtcars |>
 
 Reference the figure using `@fig-chunklabel`.
 
-## Some chunk options
-\fontsize{14}{15}\sf\vspace*{-0.2cm}
-
-* `label`: name of chunk. Useful for cross-references
-* `eval`: whether to evaluate the code chunk
-* `echo`: whether to display the code chunk
-* `output`: whether to show chunk output
-* `results: 'asis'` includes the output without markup
-* `message`: whether to display messages
-* `warning`: whether to display warnings
-* `error: true`: continue even if code returns an error.
-* `fig-cap`: caption for the figure
-* `fig-width`, `fig-height`: width and height of the figure
-* `cache`: whether to cache the code chunk
-* `dependson`: cache dependencies
-
-
 ## Extensions and templates
 \fontsize{13}{17}\sf
 
@@ -154,17 +137,6 @@ format: memo-pdf
 
 ## Reproducible environments
 
-* To ensure that your code runs the same way on different machines and at different times, you need the computing environment to be the same.
-  1. Operating system
-  2. System components
-  3. R version
-  4. R packages
-
-* Solutions for 1--4: Docker, Singularity, `containerit`, `rang`
-* Solutions for 4: `packrat`, `checkpoint`, `renv`
-
-## Reproducible environments
-
 \placefig{0.3}{1.25}{height = 6.5cm}{figs/renv}
 
 \begin{textblock}{9.5}(6.2, 1.3)
@@ -185,17 +157,9 @@ format: memo-pdf
 \item \texttt{renv::init()} to initialize a new project.
 \item \texttt{renv::snapshot()} to save state of project to \texttt{renv.lock}.
 \item \texttt{renv::restore()} to restore project as saved in \texttt{renv.lock}.
+\item \texttt{renv::update()} gets latest versions of all dependencies from wherever they were installed from.
 \end{itemize}
 \end{textblock}
-
-
-## renv package
-\fontsize{14}{16}\sf
-
-* `renv::install()` can install from CRAN, Bioconductor, GitHub, Gitlab, Bitbucket, etc.
-* renv uses a package cache so you are not repeatedly installing the same packages in multiple projects.
-* `renv::update()` gets latest versions of all dependencies from wherever they were installed from.
-* `renv::deactivate(clean = TRUE)` will remove the renv environment.
 
 # targets
 

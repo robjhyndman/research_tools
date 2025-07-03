@@ -2,16 +2,16 @@
 title: Quarto example
 author: Rob Hyndman
 date: "2025-07-03"
-format: html
+format: memo-pdf
 execute:
-    echo: true
-    cache: true
+  echo: true
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 library(ggplot2)
+library(targets)
 ```
 
 ## R Markdown
@@ -33,9 +33,7 @@ You can also embed plots, for example:
 #| label: fig-plot
 #| echo: false
 #| fig-cap: Fuel efficiency plotted against vehicle weight. Heavier cars use more fuel than lighter cars.
-mtcars |>
-  ggplot(aes(x = wt, y = mpg)) +
-  geom_point()
+tar_read(plot)
 ```
 
 Note that the `echo: false` parameter was added to the code chunk to prevent printing of the R code that generated the plot shown in @fig-plot.
